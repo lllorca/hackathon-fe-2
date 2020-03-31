@@ -4,6 +4,7 @@ import { BusinessService } from '../services/business.service';
 import { Business } from '../model/business';
 import { Product } from '../model/product';
 import { CategoryTranslatorService } from '../services/category-translator.service';
+import {PurchaseService} from '../services/purchase.service';
 
 @Component({
   selector: 'app-business',
@@ -17,9 +18,10 @@ export class BusinessComponent implements OnInit {
 
   chosenProduct: Product;
   total: number;
+  amount: number;
 
-  constructor(private route: ActivatedRoute, private businessService: BusinessService, 
-              private categoryTranslator: CategoryTranslatorService) {
+  constructor(private route: ActivatedRoute, private businessService: BusinessService,
+              private categoryTranslator: CategoryTranslatorService, private purchaseService: PurchaseService) {
   }
 
   ngOnInit(): void {
@@ -36,7 +38,13 @@ export class BusinessComponent implements OnInit {
   }
 
   updateTotal(amount: number) {
+    this.amount = amount;
     this.total = this.chosenProduct.price * amount;
+  }
+
+
+  buyProduct() {
+    this.purchaseService.buyProduct(this.amount, this.chosenProduct.id);
   }
 
 }
