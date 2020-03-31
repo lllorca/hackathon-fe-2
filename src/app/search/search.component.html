@@ -1,37 +1,45 @@
 
-<h1 style="margin-top: 25px; margin-bottom: 35px" >Locales</h1>
 
 <div class="row"> 
-    
-    <div class="col-md-2">
-        <hr/>
-        <h5 style="text-align: center; margin-bottom: 20px">Categorias</h5>
-        <hr/>
-        <button type="button" class="btn btn-light btn-lg btn-block" (click) = "reset()">Todos</button>
-        <button type="button" class="btn btn-light btn-lg btn-block" *ngFor="let category of categories" (click)="update(category)">{{category}}</button>
-    </div>
-    
-    <div class="col-md-9">
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
         
-        <div class="row row-cols-1 row-cols-md-2" style="margin-top: 15px">
+        <h1 style="margin-top: 25px; margin-bottom: 35px" >Locales</h1>
+
+        <div class="row">
+        
+        <div class="col-md-2">
+                <hr/>
+                <h5 style="text-align: center; margin-bottom: 20px">Categorias</h5>
+                <hr/>
+                <button type="button" class="btn btn-light btn-lg btn-block" (click) = "reset()">Todos</button>
+                <button type="button" class="btn btn-light btn-lg btn-block" *ngFor="let category of categories" (click)="update(category)">{{category}}</button>
+        </div>
+
+        <div class="col-md-10">
+                <div class="row row-cols-1 row-cols-md-2" style="margin-top: 15px">
             
             
-            <div class="card mb-3" *ngFor="let business of businesses">
-                <div class="row no-gutters" style="cursor: pointer" (click)="goToBusiness(business.id)">
-                    <div class="col-md-3">
-                        <img src="https://worldinbetween.files.wordpress.com/2013/04/my-cheese-shop.jpg?w=1024&h=728" class="card-img" alt="...">
-                    </div>
-                    <div class="col-md-9">
-                        <div class="card-body">
-                            <h3 class="card-title">{{business.name}}</h3  >
-                            <p class="card-text"><i class="fa fa-user"></i> {{business.owner.name}} {{business.owner.lastName}}</p>
+                        <div class="card mb-3" *ngFor="let business of businesses">
+                            <div class="row no-gutters" style="cursor: pointer" (click)="goToBusiness(business.id)">
+                                <div class="col-md-3">
+                                    <img src="https://worldinbetween.files.wordpress.com/2013/04/my-cheese-shop.jpg?w=1024&h=728" class="card-img" alt="...">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{business.name}}</h3  >
+                                        <p class="card-text"><i class="fa fa-user"></i> {{business.owner.name}} {{business.owner.lastName}}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                            
                     </div>
-                </div>
-            </div>
-                
         </div>
     </div>
+
+    </div>
+
     <div class="col-md-1"></div>
-        
 </div>
