@@ -1,12 +1,12 @@
 .scroll .hero {
     transform: scale(0.98);
   }
-   
+
   .hero {
     background-attachment: fixed;
     transition: transform 0.5s ease-in-out;
   }
-   
+
   .hero::after {
     content: '';
     position: absolute;
@@ -20,7 +20,7 @@
       rgba(0, 0, 0, 0.1) 100%
     );
   }
-   
+
   .hero .container-fluid {
     z-index: 10;
   }

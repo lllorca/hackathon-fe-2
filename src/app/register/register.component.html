@@ -1,0 +1,98 @@
+<div class="login">
+  <h2 class="login-header">Registro</h2>
+  <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.name.errors }">
+      <input type="text" placeholder="Nombre" formControlName="name">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.name.errors" class="help-block">
+      <div *ngIf="formControls.name.errors.required">Ingrese su nombre</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.lastName.errors }">
+      <input type="text" placeholder="Apellido" formControlName="lastName">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.lastName.errors" class="help-block">
+      <div *ngIf="formControls.lastName.errors.required">Ingrese su apellido</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.document.errors }">
+      <input type="number" min="1" step="1" placeholder="Documento" formControlName="document">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.document.errors" class="help-block">
+      <div *ngIf="formControls.document.errors.required">Ingrese su documento</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+      <input type="email" placeholder="Email" formControlName="email">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+      <div *ngIf="formControls.email.errors.required">Ingrese su mail</div>
+    </div>
+
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+      <input type="password" placeholder="Contraseña" formControlName="password">
+    </p>
+
+    <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+      <div *ngIf="formControls.password.errors.required">Ingrese su contraseña</div>
+    </div>
+
+    <p>
+      <input type="submit" value="Registrarse">
+    </p>
+    </form>
+</div>
+
+
+<!--<div class="limiter">-->
+<!--  <div class="container-login100">-->
+<!--    <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">-->
+<!--      <form [formGroup]="loginForm" class="login100-form validate-form" (ngSubmit)="login()">-->
+<!--					<span class="login100-form-title p-b-33">-->
+<!--						Registro-->
+<!--					</span>-->
+
+<!--        <div class="wrap-input100 rs1 validate-input" data-validate="Ingrese su nombre">-->
+<!--          <input class="input100" type="text" name="name" placeholder="Nombre" formControlName="name">-->
+<!--          <span class="focus-input100-1"></span>-->
+<!--          <span class="focus-input100-2"></span>-->
+<!--        </div>-->
+
+<!--        <div class="wrap-input100 rs1 validate-input" data-validate="Ingrese su apellido">-->
+<!--          <input class="input100" type="text" name="lastName" placeholder="Apellido" formControlName="lastName">-->
+<!--          <span class="focus-input100-1"></span>-->
+<!--          <span class="focus-input100-2"></span>-->
+<!--        </div>-->
+
+<!--        <div class="wrap-input100 rs1">-->
+<!--          <input class="input100" type="number" pattern="\d+" step="1" min="1" name="document" placeholder="Documento" formControlName="document">-->
+<!--          <span class="focus-input100-1"></span>-->
+<!--          <span class="focus-input100-2"></span>-->
+<!--        </div>-->
+
+<!--        <div class="wrap-input100 validate-input" data-validate = "Ingrese una cuenta de email valida. Ej: ex@abc.xyz">-->
+<!--          <input class="input100" type="text" name="email" placeholder="Email" formControlName="email">-->
+<!--          <span class="focus-input100-1"></span>-->
+<!--          <span class="focus-input100-2"></span>-->
+<!--        </div>-->
+
+<!--        <div class="wrap-input100 rs1 validate-input" data-validate="Ingrese una contrase;a">-->
+<!--          <input class="input100" type="password" name="password" placeholder="Password" formControlName="password">-->
+<!--          <span class="focus-input100-1"></span>-->
+<!--          <span class="focus-input100-2"></span>-->
+<!--        </div>-->
+
+<!--        <div class="container-login100-form-btn m-t-20">-->
+<!--          <button class="login100-form-btn">-->
+<!--            Registrarse-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

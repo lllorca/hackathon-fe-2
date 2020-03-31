@@ -15,8 +15,8 @@ export class AuthenticationService {
     });
   }
 
-  register(email: string, password: string) {
-    return this.httpClient.post(Constants.API_ENDPOINT + '/register', {email, password}).subscribe(res => {
+  register(name: string, lastName: string, document: number, email: string, password: string) {
+    return this.httpClient.post(Constants.API_ENDPOINT + '/register', {name, lastName, document, email, password}).subscribe(res => {
       this.login(email, password);
     });
   }

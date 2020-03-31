@@ -12,6 +12,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.authorizationService.login('elman@vitali.com', 'banana');
+    // this.authorizationService.login('elman@vitali.com', 'banana');
   }
 }
