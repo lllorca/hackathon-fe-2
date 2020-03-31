@@ -7,11 +7,25 @@ import { Constants } from './constants';
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   login(email: string, password: string) {
-    this.http.post(Constants.API_ENDPOINT + '/authenticate', { email: email, password: password }).subscribe(response => {
-      console.log(response);
+    return this.httpClient.post<{token: string}>(Constants.API_ENDPOINT + '/authenticate', {email, password}).subscribe(res => {
+      localStorage.setItem('access_token', res.token);
     });
+  }
+
+  register(email: string, password: string) {
+    return this.httpClient.post(Constants.API_ENDPOINT + '/register', {email, password}).subscribe(res => {
+      this.login(email, password);
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('access_token');
+  }
+
+  public get loggedIn(): boolean{
+    return localStorage.getItem('access_token') !==  null;
   }
 }
