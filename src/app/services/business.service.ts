@@ -14,4 +14,8 @@ export class BusinessService {
   getAllBusiness(): Observable<Business[]> {
       return this.http.get<Business[]>(Constants.API_ENDPOINT + '/business');
   }
+
+  getBusiness(id: string): Observable<Business> {
+    return this.http.get<Business>(Constants.API_ENDPOINT + '/business/' + id);
+  }
 }
