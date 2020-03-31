@@ -1,6 +1,77 @@
-<p>business works!</p>
-<div *ngIf="business">
-        <p>{{business.name}}</p>
-        <p>{{business.category}}</p>
-        <p>{{business.address}}</p>
+<div class="row">
+    <div class="col-md-1"></div>
+    
+    <div class="col-md-10">
+        <h1 style="margin-top: 25px; margin-bottom: 35px" >Local</h1>
+        
+        <div class="card" *ngIf="business">
+            <div class="card-body">
+                <h5 class="card-title">{{business.name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{business.category}}</h6>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 25px; margin-bottom: 35px" >En Venta</h3>
+        
+        <div class="row row-cols-1 row-cols-md-2" >
+            <div class="col mb-4" *ngFor="let product of business.products">
+                <div class="card" data-toggle="modal" data-target="#exampleModalCenter" style="cursor: pointer" (click)="chooseProduct(product)">
+                    <div class="card-body">
+                        <div style="display: flex; justify-content: space-between">
+                            
+                            <h5 class="card-title">{{product.name}} - {{product.price | currency}}</h5>
+                            <p><i class="fa fa-clock-o"></i> {{product.expirationInMonths}} meses</p>
+                            
+                        </div>
+                        <p class="card-text">{{product.description}}</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-1"></div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" *ngIf="chosenProduct">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Nombre</th>
+                                <td>{{chosenProduct.name}}</td>
+                            </tr>
+                            <tr>
+                                <th>Expiración</th>
+                                <td>{{chosenProduct.expirationInMonths}} meses</td>
+                            </tr>
+                            <tr>
+                                <th>Cantidad</th>
+                                <td><input #amount type="number" style="width:4rem" value="1" min=1 max=5 (change)="updateTotal(amount.value)"/></td>
+                            </tr>
+                            <tr>
+                                <th>Total</th>
+                                <td>{{total | currency}}</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Comprar</button>
+            </div>
+        </div>
+    </div>
 </div>
