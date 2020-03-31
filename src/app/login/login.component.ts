@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     }
     this.authenticationService.login(this.loginForm.get('email').value, this.loginForm.get('password').value);
     if (this.authenticationService.loggedIn) {
-      console.log('asdasdasd');
       this.router.navigateByUrl('/');
     }
   }
