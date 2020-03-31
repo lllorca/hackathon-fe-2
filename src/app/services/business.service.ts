@@ -18,4 +18,8 @@ export class BusinessService {
   getBusiness(id: string): Observable<Business> {
     return this.http.get<Business>(Constants.API_ENDPOINT + '/business/' + id);
   }
+
+  getMyBusiness(): Observable<Business> {
+    return this.http.get<Business>(Constants.API_ENDPOINT + '/business/my-business');
+  }
 }

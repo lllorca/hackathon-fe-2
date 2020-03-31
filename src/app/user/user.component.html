@@ -1,1 +1,75 @@
-<p>user works!</p>
+<div class="row">
+    
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h1 style="margin-top: 25px; margin-bottom: 35px" >Mi Usuario</h1>
+        
+        <div class="card mb-3" *ngIf="user">
+            <div class="row no-gutters">
+                <div class="col-md-2">
+                    <img src="https://image.flaticon.com/icons/png/512/44/44948.png" class="card-img" alt="...">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <h2 class="card-title">{{user.name}} {{user.lastName}}</h2>
+                        <p class="card-text">Aca podés ver tus compras y tus ventas</p>
+                        <p class="card-text"><small class="text-muted">Último login: hoy</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="!business">
+            <!--Permitir que se pueda crear una empresa-->
+        </div>
+
+        <div *ngIf="business">
+            <h4>Mis Ventas</h4>
+            <table class="table">
+                <tr>
+                    <th>Identificación</th>
+                    <th>Comprador</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                    <th>Fecha compra</th>
+                    <th>Fecha expiración</th>
+                </tr>
+                <tr *ngFor="let sale of mySales">
+                    <td>{{sale.id}}</td>
+                    <td>{{sale.buyer.name}} {{sale.buyer.lastName}}</td>
+                    <td>{{sale.product.name}}</td>
+                    <td>{{sale.quantity}}</td>
+                    <td>{{sale.quantity * sale.product.price | currency}}</td>
+                    <td>{{sale.timestamp}}</td>
+                    <td>{{sale.expiration}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <h4>Mis compras</h4>
+        
+        <table class="table">
+            <tr>
+                <th>Identificación</th>
+                <th>Negocio</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Fecha compra</th>
+                <th>Fecha expiración</th>
+            </tr>
+            <tr *ngFor="let sale of myPurchases">
+                <td>{{sale.id}}</td>
+                <td>{{sale.business.name}}</td>
+                <td>{{sale.product.name}}</td>
+                <td>{{sale.quantity}}</td>
+                <td>{{sale.quantity * sale.product.price | currency}}</td>
+                <td>{{sale.timestamp}}</td>
+                <td>{{sale.expiration}}</td>
+            </tr>
+        </table>
+        
+    </div>
+    <div class="col-md-1"></div>
+</div>
