@@ -17,7 +17,7 @@ export class BusinessComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.businessService.getBusiness(this.id).subscribe(response => this.business = response);
+    this.businessService.getBusiness(this.id).subscribe(response => this.business = response)
   }
 
 }

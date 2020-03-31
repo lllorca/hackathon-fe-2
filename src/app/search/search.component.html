@@ -1,4 +1,30 @@
-<p>search works!</p>
-<div *ngFor="let business of businesses">
-    <a routerLink="/business/{{business.id}}"><p>{{business.name}}</p></a>
+
+<h1 style="margin-top: 25px; margin-bottom: 35px" >Locales</h1>
+
+<div class="row" s> 
+
+        <div class="col-md-2">
+            <h3>Categorias</h3>
+            <button type="button" class="btn btn-primary btn-lg btn-block" (click) = "reset()">Todos</button>
+            <button type="button" class="btn btn-light btn-lg btn-block" *ngFor="let category of categories" (click)="update(category)">{{category}}</button>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="card mb-3" *ngFor="let business of businesses">
+                <div class="row no-gutters">
+                    <div class="col-md-1">
+                    <img src="https://worldinbetween.files.wordpress.com/2013/04/my-cheese-shop.jpg?w=1024&h=728" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-9">
+                    <div class="card-body">
+                        <a routerLink="/business/{{business.id}}"><h3 class="card-title">{{business.name}}</h3  ></a>
+                        <p class="card-text">{{business.description}}</p>
+                        <p class="card-text"><small class="text-muted">{{business.owner.name}}</small></p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+
 </div>
